@@ -27,9 +27,11 @@ hexo.extend.tag.register('nemusic', function(args) {
     var widget = (['flash', 'iframe'].indexOf(args[1]) > 0) ? args[1] : _d.$widget;
     var auto = (['0', '1'].indexOf(args[2]) > 0) ? args[2] : _d.$auto;
     
+    var html;
     if('flash'==widget) {
         var size = (['small', 'medium'].indexOf(args[3]) > 0) ? args[3] : _d.$size.$flash;
-        return '<embed src="http://music.163.com/style/swf/widget.swf?sid=' + musicId + '&type=2&auto=' + auto + '&width=' + size.width + '&height=' + size.height + '" width="' + (size.width + 20) + '" height="' + (size.height + 20) + '"  allowNetworking="all"></embed>';
+        size = _fs[size];
+        html = '<embed src="http://music.163.com/style/swf/widget.swf?sid=' + musicId + '&type=2&auto=' + auto + '&width=' + size.width + '&height=' + size.height + '" width="' + (size.width + 20) + '" height="' + (size.height + 20) + '"  allowNetworking="all"></embed>';
     } else {
         var size = args[3] || _d.$size.$iframe;
         try {
@@ -40,6 +42,7 @@ hexo.extend.tag.register('nemusic', function(args) {
         } catch(e) {
             size = JSON.parse(_d.$size.$iframe);
         }
-        return '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=' + size.width + ' height=' + (size.height + 20) + ' src="http://music.163.com/outchain/player?type=2&id=' + musicId + '&auto=' + auto + '&height=' + size.height + '"></iframe>';
+        html = '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=' + size.width + ' height=' + (size.height + 20) + ' src="http://music.163.com/outchain/player?type=2&id=' + musicId + '&auto=' + auto + '&height=' + size.height + '"></iframe>';
     }
+    return '<div class="netease-music-container"><div class="netease-music-inner">' + html + '</div></div>';
 });
