@@ -1,0 +1,27 @@
+{
+  "name": "hexo-tag-netease-music",
+  "version": "1.0.1",
+  "description": "Embed netease music in Hexo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoeen/hexo-tag-netease-music.git"
+  },
+  "keywords": [
+    "hexo",
+    "embed",
+    "netease",
+    "music",
+    "plugin",
+    "blog"
+  ],
+  "author": "yoeen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yoeen/hexo-tag-netease-music/issues"
+  },
+  "homepage": "https://github.com/yoeen/hexo-tag-netease-music#readme"
+}
