@@ -36,10 +36,8 @@ hexo.extend.tag.register('nemusic', function(args) {
             size = JSON.parse(size);
             size.width = parseInt(size.width);
             size.height = parseInt(size.height);
-            if(isNaN(size.width) || isNaN(size.height) || size.width<260 || size.width>510 || size.height<190 ||size.height>500) {
-                throw new Error();
-            }
-        } catch() {
+            if(isNaN(size.width) || isNaN(size.height) || size.width<260 || size.width>510 || size.height<190 ||size.height>500) throw new Error();
+        } catch(e) {
             size = JSON.parse(_d.$size.$iframe);
         }
         return '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=' + size.width + ' height=' + (size.height + 20) + ' src="http://music.163.com/outchain/player?type=2&id=' + musicId + '&auto=' + auto + '&height=' + size.height + '"></iframe>';
